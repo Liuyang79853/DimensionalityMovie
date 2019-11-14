@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SearchActivity"
+    android:background="#141931"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_47"
+            android:layout_marginLeft="@dimen/dp_28"
+            android:background="@drawable/back"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_movie_thekeyword"
+                android:layout_width="@dimen/dp_250"
+                android:layout_height="@dimen/dp_30"
+                android:background="@drawable/etselector"
+                android:hint="请输入影片关键字"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_40"
+                android:paddingLeft="@dimen/sp_10"/>
+
+            <ImageView
+                android:id="@+id/iv_search_movie"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_marginTop="@dimen/dp_42"
+                android:src="@drawable/search_icon"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_30"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_145"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_20">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_thekeyword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+</LinearLayout>

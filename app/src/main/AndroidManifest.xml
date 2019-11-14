@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bw.movie">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".applications.App"
+        android:allowBackup="true"
+        android:icon="@drawable/movie_log"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.activity.ChoseCinemaActivity"></activity>
+        <activity android:name=".view.activity.CinemaDetailsActivity" />
+        <activity android:name=".view.activity.BuyTicketActivity" />
+        <activity android:name=".view.activity.mine.UpdateNowActivity" />
+        <activity android:name=".view.activity.mine.SetUpTheActivity" />
+        <activity android:name=".view.activity.mine.AttentionActivity" />
+        <activity android:name=".view.activity.mine.UserInformationActivity" />
+        <activity android:name=".view.activity.SystemMessageActivity" />
+        <activity android:name=".view.activity.AddMovieCommentActivity" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:usesCleartextTraffic="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="net.sourceforge.simcpux"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".view.activity.MovieMoreActivity" />
+        <activity android:name=".view.activity.MovieDetailsActivity" />
+        <activity android:name=".view.activity.SearchActivity" />
+        <activity android:name=".view.activity.SplashActivity" />
+        <activity android:name=".view.activity.RegisterActivity" />
+        <activity android:name=".view.activity.LoginActivity" />
+        <activity android:name=".view.activity.HomePageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

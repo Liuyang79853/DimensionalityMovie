@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#141931">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_26"
+        android:layout_marginTop="@dimen/dp_38"
+        android:layout_marginRight="@dimen/dp_27">
+
+        <ImageButton
+            android:id="@+id/frag_movie_ib_location"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_24"
+            android:background="@drawable/icon_location" />
+
+        <ImageButton
+            android:id="@+id/frag_movie_ib_search"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/icon_search" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_38"
+                android:layout_marginTop="@dimen/dp_21"
+                android:layout_marginRight="@dimen/dp_38"
+                android:orientation="vertical">
+
+                <com.stx.xhb.xbanner.XBanner
+                    android:id="@+id/frag_movie_banner"
+                    android:layout_width="@dimen/dp_280"
+                    android:layout_height="@dimen/dp_150">
+
+                </com.stx.xhb.xbanner.XBanner>
+
+                <TextView
+                    android:id="@+id/tv_frag_movie_page"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp_160"
+                    android:text="00"
+                    android:textColor="#ffffff" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_38"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="#1c2243"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:layout_marginTop="@dimen/dp_9"
+                    android:background="@drawable/zzry" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_54"
+                    android:layout_marginTop="@dimen/dp_9"
+                    android:text="正在热映"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_movie_more1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_24"
+                    android:text="更多"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_12" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_20">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_isHit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_38"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="#1c2243"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:layout_marginTop="@dimen/dp_9"
+                    android:background="@drawable/jjsy" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_54"
+                    android:layout_marginTop="@dimen/dp_9"
+                    android:text="即将上映"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_movie_more2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_24"
+                    android:text="更多"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_12" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_upComing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_38"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="#1c2243"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:layout_marginTop="@dimen/dp_9"
+                    android:background="@drawable/rmdy" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_54"
+                    android:layout_marginTop="@dimen/dp_9"
+                    android:text="热门电影"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_movie_more3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_24"
+                    android:text="更多"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_12" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_312"
+                    android:layout_height="@dimen/dp_120">
+
+                    <Button
+                        android:id="@+id/btn_buy_ticket"
+                        android:layout_width="@dimen/dp_45"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/buyticket"
+                        android:text="购票"
+                        android:textColor="#ffffff"
+                        android:layout_marginRight="@dimen/dp_10"/>
+
+                    <ImageView
+                        android:id="@+id/iv_imageUrl"
+                        android:layout_width="@dimen/dp_312"
+                        android:layout_height="@dimen/dp_120" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_hot"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dp_10">
+
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.RegisterActivity"
+    android:background="#141931">
+
+    <ImageView
+        android:layout_width="@dimen/dp_360"
+        android:layout_height="@dimen/dp_305"
+        android:background="@drawable/login"/>
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_44"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/et_register_userName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shapes"
+            android:hint="请输入用户名"
+            android:textColorHint="#ffffff"
+            android:textColor="#999999"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/et_register_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shapes"
+            android:hint="请输入邮箱"
+            android:textColorHint="#ffffff"
+            android:textColor="#999999"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/et_register_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shapes"
+            android:hint="请输入密码"
+            android:textColorHint="#ffffff"
+            android:textColor="#999999"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/et_register_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shapes"
+            android:hint="请输入验证码"
+            android:textColorHint="#ffffff"
+            android:textColor="#999999"/>
+
+        <Button
+            android:id="@+id/btn_register_sendCode"
+            android:layout_width="@dimen/dp_96"
+            android:layout_height="match_parent"
+            android:text="发送验证码"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/shapesbutton"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12">
+
+        <Button
+            android:id="@+id/btn_accounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已有账号,立即登录"
+            android:background="#00000000"
+            android:textColor="#999999"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_24"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_44"
+        android:layout_gravity="center"
+        android:text="注册"
+        android:textColor="#ffffff"
+        android:background="@drawable/shapeslogin"/>
+
+</LinearLayout>
