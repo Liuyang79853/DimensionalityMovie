@@ -6,11 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-/**
- * date:2019/9/5
- * author:孙杰健(fdg)
- * function:
- */
+
 public class HomePageFragmentAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments;

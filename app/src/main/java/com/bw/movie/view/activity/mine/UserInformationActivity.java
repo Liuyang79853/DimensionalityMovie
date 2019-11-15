@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bw.movie.R;
 import com.bw.movie.presenter.home.HomeFragPresenter;
+import com.bw.movie.view.activity.LoginActivity;
 import com.bw.movie.view.activity.base.BaseActivity;
 
 import butterknife.BindView;
@@ -37,7 +38,9 @@ public class UserInformationActivity extends BaseActivity<HomeFragPresenter> {
 
         tvUserEmail.setText(email);
         tvUserName.setText(nickName);
-
+        if (nickName == null){
+            startActivity(new Intent(UserInformationActivity.this, LoginActivity.class));
+        }
         if (sex == 1){
             tvUserSex.setText("男");
         }else if (sex == 2){

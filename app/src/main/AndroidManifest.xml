@@ -38,10 +38,10 @@
         <activity android:name=".view.activity.MovieMoreActivity" />
         <activity android:name=".view.activity.MovieDetailsActivity" />
         <activity android:name=".view.activity.SearchActivity" />
-        <activity android:name=".view.activity.SplashActivity" />
+        <activity android:name=".view.activity.HomePageActivity" />
         <activity android:name=".view.activity.RegisterActivity" />
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.HomePageActivity">
+        <activity android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -31,11 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-/**
- * date:2019/9/10
- * author:孙杰健(fdg)
- * function:
- */
+
 public class MovieMoreHotFragment extends Fragment implements IContractView.IMovieView, IBaseView {
     @BindView(R.id.recycler_hot_more)
     RecyclerView recyclerHotMore;
