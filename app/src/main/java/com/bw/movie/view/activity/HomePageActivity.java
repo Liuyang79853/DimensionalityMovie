@@ -1,10 +1,13 @@
 package com.bw.movie.view.activity;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bw.movie.R;
@@ -33,6 +36,12 @@ public class HomePageActivity extends BaseActivity<HomeFragPresenter> {
     RadioButton rbMainMy;
     @BindView(R.id.rg_main_radioGroup)
     RadioGroup rgMainRadioGroup;
+    @BindView(R.id.text_home1)
+    TextView mTextHome1;
+    @BindView(R.id.text_home2)
+    TextView mTextHome2;
+    @BindView(R.id.text_home3)
+    TextView mTextHome3;
     private Unbinder bind;
     private List<Fragment> fragments;
     private long mExitTime;
@@ -44,7 +53,12 @@ public class HomePageActivity extends BaseActivity<HomeFragPresenter> {
         fragments.add(new MoiveFragment());
         fragments.add(new CinemaFragment());
         fragments.add(new MyFragment());
-
+        mTextHome1.setClickable(false);
+        mTextHome2.setClickable(false);
+        mTextHome3.setClickable(false);
+        rbMainCinema.setClickable(true);
+        rbMainMovie.setClickable(true);
+        rbMainMy.setClickable(true);
         homePageFragmentAdapter = new HomePageFragmentAdapter(getSupportFragmentManager(), fragments);
         vpMainViewPager.setAdapter(homePageFragmentAdapter);
 
@@ -81,14 +95,23 @@ public class HomePageActivity extends BaseActivity<HomeFragPresenter> {
                 switch (checkedId) {
                     case R.id.rb_main_movie:
                         vpMainViewPager.setCurrentItem(0);
+                        mTextHome1.setVisibility(View.VISIBLE);
+                        mTextHome2.setVisibility(View.GONE);
+                        mTextHome3.setVisibility(View.GONE);
                         break;
 
                     case R.id.rb_main_cinema:
                         vpMainViewPager.setCurrentItem(1);
+                        mTextHome1.setVisibility(View.GONE);
+                        mTextHome2.setVisibility(View.VISIBLE);
+                        mTextHome3.setVisibility(View.GONE);
                         break;
 
                     case R.id.rb_main_my:
                         vpMainViewPager.setCurrentItem(2);
+                        mTextHome1.setVisibility(View.GONE);
+                        mTextHome2.setVisibility(View.GONE);
+                        mTextHome3.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -133,5 +156,12 @@ public class HomePageActivity extends BaseActivity<HomeFragPresenter> {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

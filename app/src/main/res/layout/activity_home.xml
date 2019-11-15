@@ -20,7 +20,25 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:background="#1c2243">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/text_home1"
+                    android:background="@drawable/my_shape"
+                    android:layout_margin="@dimen/dp_10"
 
+                    />
+            </LinearLayout>
         <RadioButton
             android:id="@+id/rb_main_movie"
             android:layout_width="@dimen/dp_20"
@@ -30,16 +48,55 @@
             android:layout_marginLeft="@dimen/dp_44"
             android:button="@null"
             android:checked="true"/>
-
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/text_home2"
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/dp_10"
+                    android:background="@drawable/my_shape"
+                    />
+            </LinearLayout>
         <RadioButton
             android:id="@+id/rb_main_cinema"
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
             android:background="@drawable/radioselect1"
             android:layout_marginTop="@dimen/dp_20"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/dp_106"
             android:button="@null"/>
-
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:id="@+id/text_home3"
+                android:layout_margin="@dimen/dp_10"
+                android:background="@drawable/my_shape"
+                />
+            </LinearLayout>
         <RadioButton
             android:id="@+id/rb_main_my"
             android:layout_width="@dimen/dp_20"
@@ -47,8 +104,9 @@
             android:background="@drawable/radioselect2"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginLeft="@dimen/dp_90"
+            android:layout_centerInParent="true"
             android:button="@null"/>
-
+        </RelativeLayout>
     </RadioGroup>
 
 </LinearLayout>
