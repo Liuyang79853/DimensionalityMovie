@@ -47,7 +47,7 @@ public class MovieDetailsFilmCriticsFragment extends Fragment implements IContra
         int movieId = intent.getIntExtra("movieId", 0);
         Log.e("movieId影评", movieId + "");
         movieCommentPresenter = new MovieCommentPresenter();
-//        movieCommentPresenter.attachView(this);
+        movieCommentPresenter.attachView(this);
         movieCommentPresenter.movieComment(movieId, page, count);
         return inflate;
     }

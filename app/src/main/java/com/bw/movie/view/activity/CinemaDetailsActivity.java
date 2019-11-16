@@ -50,9 +50,9 @@ public class CinemaDetailsActivity extends BaseActivity<CinemaDetailsPresenter> 
         Intent intent = getIntent();
         int cinemaId = intent.getIntExtra("cinemaId", 0);
         presenter.cinemaInfo(userId, sessionId, cinemaId);
-//        fragments = new ArrayList<>();
-//        fragments.add(new CinemaDetailsFragment());
-//        fragments.add(new CinemaEvaluationFragment());
+        fragments = new ArrayList<>();
+        fragments.add(new CinemaDetailsFragment());
+        fragments.add(new CinemaEvaluationFragment());
         CinemaFragmentAdapter cinemaFragmentAdapter = new CinemaFragmentAdapter(getSupportFragmentManager(), fragments);
         viewPagerCinemaDetails.setAdapter(cinemaFragmentAdapter);
 
