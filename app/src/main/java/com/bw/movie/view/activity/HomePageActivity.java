@@ -1,10 +1,15 @@
 package com.bw.movie.view.activity;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,143 +30,99 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class HomePageActivity extends BaseActivity<HomeFragPresenter> {
-    @BindView(R.id.vp_main_viewPager)
-    ViewPager vpMainViewPager;
-    @BindView(R.id.rb_main_movie)
-    RadioButton rbMainMovie;
-    @BindView(R.id.rb_main_cinema)
-    RadioButton rbMainCinema;
-    @BindView(R.id.rb_main_my)
-    RadioButton rbMainMy;
-    @BindView(R.id.rg_main_radioGroup)
-    RadioGroup rgMainRadioGroup;
-    @BindView(R.id.text_home1)
-    TextView mTextHome1;
-    @BindView(R.id.text_home2)
-    TextView mTextHome2;
-    @BindView(R.id.text_home3)
-    TextView mTextHome3;
-    private Unbinder bind;
-    private List<Fragment> fragments;
-    private long mExitTime;
-    private HomePageFragmentAdapter homePageFragmentAdapter;
+public class HomePageActivity extends AppCompatActivity {
 
-    @Override
-    protected void initData() {
-        fragments = new ArrayList<>();
-        fragments.add(new MoiveFragment());
-        fragments.add(new CinemaFragment());
-        fragments.add(new MyFragment());
-        mTextHome1.setClickable(false);
-        mTextHome2.setClickable(false);
-        mTextHome3.setClickable(false);
-        rbMainCinema.setClickable(true);
-        rbMainMovie.setClickable(true);
-        rbMainMy.setClickable(true);
-        homePageFragmentAdapter = new HomePageFragmentAdapter(getSupportFragmentManager(), fragments);
-        vpMainViewPager.setAdapter(homePageFragmentAdapter);
 
-        vpMainViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
+    private FrameLayout frame;
+    private RadioGroup radio_group;
+    private TextView text_dianying;
+    private TextView text_yingyuan;
+    private TextView text_wode;
+    private RadioButton radio_dianying;
+    private RadioButton radio_yingyuan;
+    private RadioButton radio_wode;
+    private MoiveFragment fragmentMovie;
 
-            }
+    private FragmentManager supportFragmentManager;
+    private CinemaFragment fragmentCinema;
+    private MyFragment fragmentMy;
 
-            @Override
-            public void onPageSelected(int i) {
-                switch (i) {
-                    case 0:
-                        rgMainRadioGroup.check(R.id.rb_main_movie);
-                        break;
-                    case 1:
-                        rgMainRadioGroup.check(R.id.rb_main_cinema);
-                        break;
-                    case 2:
-                        rgMainRadioGroup.check(R.id.rb_main_my);
-                        break;
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
-
-        rgMainRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_main_movie:
-                        vpMainViewPager.setCurrentItem(0);
-                        mTextHome1.setVisibility(View.VISIBLE);
-                        mTextHome2.setVisibility(View.GONE);
-                        mTextHome3.setVisibility(View.GONE);
-                        break;
-
-                    case R.id.rb_main_cinema:
-                        vpMainViewPager.setCurrentItem(1);
-                        mTextHome1.setVisibility(View.GONE);
-                        mTextHome2.setVisibility(View.VISIBLE);
-                        mTextHome3.setVisibility(View.GONE);
-                        break;
-
-                    case R.id.rb_main_my:
-                        vpMainViewPager.setCurrentItem(2);
-                        mTextHome1.setVisibility(View.GONE);
-                        mTextHome2.setVisibility(View.GONE);
-                        mTextHome3.setVisibility(View.VISIBLE);
-                        break;
-                }
-            }
-        });
-    }
-
-    @Override
-    protected HomeFragPresenter setPresenter() {
-        return new HomeFragPresenter();
-    }
-
-    @Override
-    protected void initView() {
-        bind = ButterKnife.bind(this);
-    }
-
-    @Override
-    protected int bindLayout() {
-        return R.layout.activity_home;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        bind.unbind();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //判断用户是否点击了“返回键”
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            //与上次点击返回键时刻作差
-            if ((System.currentTimeMillis() - mExitTime) > 2000) {
-                //大于2000ms则认为是误操作，使用Toast进行提示
-                Toast.makeText(this, "再按一次退出维度电影", Toast.LENGTH_SHORT).show();
-                //并记录下本次点击“返回键”的时刻，以便下次进行判断
-                mExitTime = System.currentTimeMillis();
-            } else {
-                //小于2000ms则认为是用户确实希望退出程序-调用System.exit()方法进行退出
-                System.exit(0);
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_home);
+        frame = findViewById(R.id.frame);
+        text_dianying = findViewById(R.id.text_dianying);
+        text_yingyuan = findViewById(R.id.text_yingyuan);
+        text_wode = findViewById(R.id.text_wode);
+        radio_dianying = findViewById(R.id.radio_dianying);
+        radio_yingyuan = findViewById(R.id.radio_yingyuan);
+        radio_wode = findViewById(R.id.radio_wode);
+        radio_group = findViewById(R.id.radio_group);
+        fragmentMovie = new MoiveFragment();
+        fragmentCinema = new CinemaFragment();
+        fragmentMy = new MyFragment();
+        supportFragmentManager = getSupportFragmentManager();
+        Bitmap a = null;
+        radio_dianying.setButtonDrawable(new BitmapDrawable(a));
+        radio_yingyuan.setButtonDrawable(new BitmapDrawable(a));
+        radio_wode.setButtonDrawable(new BitmapDrawable(a));
+        supportFragmentManager.beginTransaction()
+                .add(R.id.frame, fragmentMovie)
+                .add(R.id.frame, fragmentCinema)
+                .add(R.id.frame, fragmentMy)
+                .show(fragmentMovie)
+                .hide(fragmentCinema)
+                .hide(fragmentMy)
+                .commit();
+        radio_dianying.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                text_dianying.setVisibility(View.VISIBLE);
+                text_yingyuan.setVisibility(View.INVISIBLE);
+                text_wode.setVisibility(View.INVISIBLE);
+                radio_dianying.setChecked(true);
+                radio_yingyuan.setChecked(false);
+                radio_wode.setChecked(false);
+                supportFragmentManager.beginTransaction()
+                        .show(fragmentMovie)
+                        .hide(fragmentCinema)
+                        .hide(fragmentMy)
+                        .commit();
+            }
+        });
+        radio_yingyuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                text_yingyuan.setVisibility(View.VISIBLE);
+                text_dianying.setVisibility(View.INVISIBLE);
+                text_wode.setVisibility(View.INVISIBLE);
+                radio_yingyuan.setChecked(true);
+                radio_dianying.setChecked(false);
+                radio_wode.setChecked(false);
+                supportFragmentManager.beginTransaction()
+                        .show(fragmentCinema)
+                        .hide(fragmentMovie)
+                        .hide(fragmentMy)
+                        .commit();
+            }
+        });
+        radio_wode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                text_wode.setVisibility(View.VISIBLE);
+                text_yingyuan.setVisibility(View.INVISIBLE);
+                text_dianying.setVisibility(View.INVISIBLE);
+                radio_wode.setChecked(true);
+                radio_yingyuan.setChecked(false);
+                radio_dianying.setChecked(false);
+                supportFragmentManager.beginTransaction()
+                        .show(fragmentMy)
+                        .hide(fragmentMovie)
+                        .hide(fragmentCinema)
+                        .commit();
+            }
+        });
     }
 }
